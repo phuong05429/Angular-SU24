@@ -1,0 +1,56 @@
+h1{
+    color: red;
+}
+p{
+    font-weight: 600;
+}
+img{
+    width: 400px;
+    border: solid 3px black;
+}
+
+.inventor{
+    margin-top: 40px;
+
+}
+.inventor-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: solid 1px black;
+  }
+  
+  .inventor-table th, .inventor-table td {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .inventor-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .products-list {
+    margin-top: 40px;
+  }
+  
+  .products-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: solid 1px black;
+  }
+  
+  .products-table th, .products-table td {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .products-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .products-table img {
+    width: 100px;
+    border: solid 1px black;
+  }
+  
