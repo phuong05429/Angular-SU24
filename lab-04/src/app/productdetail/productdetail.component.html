@@ -1,0 +1,52 @@
+<div class="container" *ngIf="product">
+    <div class="card product-card">
+      <div class="card-header">
+        <h2>{{ product.productName }}</h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <p><strong>Name:</strong> {{ product.productName }}</p>
+            <p><strong>Code:</strong> {{ product.productCode }}</p>
+            <p><strong>Description:</strong> {{ product.description }}</p>
+            <p><strong>Availability:</strong> {{ product.releaseDate }}</p>
+            <p><strong>Price:</strong> {{ product.price | currency }}</p>
+            <p><strong>5 Star Rating:</strong>
+              <span class="star-rating">
+                <app-star [rating]='product.starRating'>
+                </app-star>
+              </span>
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+             
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img [src]="product.imageUrl" class="d-block w-100" alt="Product Image">
+                </div>
+                <div class="carousel-item">
+                  <img [src]="product.imageUrl" class="d-block w-100" alt="Product Image">
+                </div>
+                <div class="carousel-item">
+                  <img [src]="product.imageUrl" class="d-block w-100" alt="Product Image">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <button (click)="onBack()" class="btn btn-secondary back-btn">&larr; Back</button>
+      </div>
+    </div>
+  </div>
+  
