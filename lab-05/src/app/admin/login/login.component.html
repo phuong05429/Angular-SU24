@@ -1,0 +1,57 @@
+<div class="container login-container">
+  <div class="login-form">
+    <h2 class="text-center">Đăng Nhập</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group" id="user-data">
+        <label for="user">Tài khoản</label>
+        <input
+          type="email"
+          class="form-control"
+          id="user"
+          [(ngModel)]="userData.tenDN"
+          name="user"
+          required
+          email
+          minlength="6"
+          #user="ngModel"
+        />
+        <!-- formControlName="email" -->
+        <br />
+        <a class="btn btn-secondary" (click)="suggest()">Email đề xuất</a>
+        <div
+          *ngIf="user.invalid && (user.dirty || user.touched)"
+          class="text-danger"
+        >
+        <!-- <span class="text-danger" 
+          *ngIf="loginForm.get('email')!.invalid && (loginForm.get('email)!.dirty || loginForm.get('email')!.touched)">
+            email ko hop le</span> -->
+          <div *ngIf="user.errors?.required">Email không được để trống.</div>
+          <div *ngIf="user.errors?.email">Email không hợp lệ.</div>
+          <div *ngIf="user.errors?.minlength">
+            Email phải có ít nhất 6 ký tự.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pass">Mật khẩu</label>
+        <input
+          type="password"
+          class="form-control"
+          id="pass"
+          [(ngModel)]="userData.matKhau"
+          name="pass"
+          required
+          minlength="6"
+          #pass="ngModel"
+        />
+                <!-- formControlName="password" -->
+
+        <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="text-danger">
+          <div *ngIf="pass.errors?.required">Mật khẩu không được để trống.</div>
+          <div *ngIf="pass.errors?.minlength">Mật khẩu phải có ít nhất 6 ký tự.</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Đăng Nhập</button>
+    </form>
+  </div>
+</div>
