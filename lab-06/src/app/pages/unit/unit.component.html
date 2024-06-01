@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <button type="button" class="btn btn-secondary mb-3" (click)="openDialog()">Thêm Mới</button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col">Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of listUnit">
+            <td>{{ post.id }}</td>
+            <td>{{ post.name }}</td>
+            <td>{{ post.address }}</td>
+            <td>{{ post.description }}</td>
+            <td>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary me-2" (click)="handleEdit(post)">Sửa</button>
+                <button type="button" class="btn btn-danger" (click)="openDialogDelete(post)">Xóa</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- <nav>
+    <ul class="pagination">
+      <li class="page-item" *ngFor="let page of pages">
+        <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+      </li>
+    </ul>
+  </nav> -->
+</div>
+
+<app-create [isOpen]="isDialogOpen" title="Thêm" (closeModal)="closeDialog()" (successSubmit)="reloadPage()"
+  [data]="dataUnit" [isEdit]="isEdit"></app-create>
+
+<div class="dialog-backdrop" *ngIf="isDeleteDialogOpen">
+  <div class="dialog">
+    <div class="dialog-header">
+      {{ title }}
+    </div>
+    <div class="dialog-body">
+      <button class="btn btn-danger me-2" (click)="handleDelete()">Đồng ý</button>
+      <button class="btn btn-secondary" (click)="close()">Hủy</button>
+    </div>
+  </div>
+</div>
